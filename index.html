@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF Sensibilidade</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="toast"></div>
+<section id="auth" class="screen">
+  <div class="hero">
+    <div class="brand">FF<span>+</span></div>
+    <p class="tag">Sensibilidade e configurações para Free Fire</p>
+    <div class="auth-card">
+      <div class="tabs">
+        <button class="tab active" data-auth="login">Entrar</button>
+        <button class="tab" data-auth="register">Criar conta</button>
+      </div>
+      <form id="loginForm">
+        <label>E-mail</label><input id="loginEmail" type="email" required placeholder="seu@email.com">
+        <label>Senha</label><input id="loginPassword" type="password" required placeholder="••••••••">
+        <button class="primary" type="submit">Entrar no painel</button>
+      </form>
+      <form id="registerForm" class="hidden">
+        <label>Nome</label><input id="regName" required placeholder="Seu nome">
+        <label>E-mail</label><input id="regEmail" type="email" required placeholder="seu@email.com">
+        <label>Senha</label><input id="regPassword" type="password" minlength="6" required placeholder="Mínimo 6 caracteres">
+        <button class="primary" type="submit">Criar minha conta</button>
+      </form>
+      <small>Versão de teste conectada ao backend.</small>
+    </div>
+    <div class="reviews">
+      <div><b>★★★★★</b><p>“Comprei e gostei muito da configuração.”</p><span>Cliente</span></div>
+      <div><b>★★★★★</b><p>“Fácil de usar e rápido para gerar.”</p><span>Cliente</span></div>
+      <div><b>★★★★★</b><p>“Gostei bastante do painel.”</p><span>Cliente</span></div>
+    </div>
+  </div>
+</section>
+<section id="app" class="hidden">
+  <header><div class="brand">FF<span>+</span></div><button id="logout" class="ghost">Sair</button></header>
+  <main>
+    <div class="welcome">
+      <div><span>PAINEL DO CLIENTE</span><h1>Bem-vindo, <strong id="userName"></strong>!</h1><p>Escolha uma opção para começar.</p></div>
+      <div class="balance">Saldo<br><strong>R$ <span id="balance">0,00</span></strong></div>
+    </div>
+    <div class="grid">
+      <button class="feature" data-view="generate"><i>🎯</i><b>Gerar sensibilidade</b><span>Crie uma configuração personalizada.</span></button>
+      <button class="feature vip" data-view="vip"><i>👑</i><b>Sensibilidade VIP</b><span>Sensibilidade + configurações do celular.</span></button>
+      <button class="feature" data-view="history"><i>📜</i><b>Histórico</b><span>Veja suas configurações anteriores.</span></button>
+      <button class="feature" data-view="plans"><i>💳</i><b>Adicionar saldo</b><span>Carregue a partir de R$10.</span></button>
+      <button class="feature" data-view="admin"><i>⚙️</i><b>Área administrativa</b><span>Disponível para a conta administradora.</span></button>
+    </div>
+    <section id="content" class="panel"></section>
+  </main>
+</section>
+<script src="js/app.js"></script>
+</body>
+</html>
