@@ -1,1 +1,668 @@
-*{box-sizing:border-box}body{margin:0;background:#08050d;color:#f8f5ff;font-family:Inter,Arial,sans-serif}button,input{font:inherit}.screen{min-height:100vh}.hero{max-width:1100px;margin:auto;padding:42px 20px}.brand{font-size:32px;font-weight:900;letter-spacing:-2px}.brand span{color:#a855f7}.tag{color:#aaa0b8}.auth-card,.panel,.feature,.reviews div{background:linear-gradient(145deg,#15101c,#0d0912);border:1px solid #2b2035;border-radius:22px;box-shadow:0 15px 50px #0008}.auth-card{max-width:430px;margin:45px auto;padding:25px}.tabs{display:flex;gap:8px;margin-bottom:22px}.tab,.ghost{background:none;border:0;color:#aaa;padding:12px;cursor:pointer}.tab.active{color:#fff;border-bottom:2px solid #a855f7}label{display:block;font-size:13px;color:#bcb2c8;margin:13px 0 7px}input{width:100%;padding:14px;border-radius:12px;border:1px solid #34283e;background:#0a0710;color:#fff;outline:none}input:focus{border-color:#a855f7}.primary{width:100%;margin-top:20px;padding:15px;border:0;border-radius:13px;color:#fff;font-weight:800;background:linear-gradient(90deg,#7c3aed,#a855f7);cursor:pointer}.hidden{display:none!important}.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}.reviews div{padding:18px}.reviews b{color:#c084fc}.reviews p{color:#d5cedb}.reviews span{color:#82788b;font-size:12px}header{height:72px;border-bottom:1px solid #211a29;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;background:#08050df2;backdrop-filter:blur(10px);z-index:5}main{max-width:1100px;margin:auto;padding:28px 20px}.welcome{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:25px}.welcome span{font-size:11px;color:#a855f7;font-weight:800;letter-spacing:1.5px}.welcome h1{margin:7px 0;font-size:32px}.welcome p{color:#968b9e}.balance{min-width:145px;padding:16px 20px;border:1px solid #33253f;border-radius:18px;background:#120d18;color:#968b9e}.balance strong{color:#fff;font-size:22px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.feature{color:#fff;text-align:left;padding:22px;cursor:pointer;transition:.2s}.feature:hover{transform:translateY(-2px);border-color:#8b5cf6}.feature i{font-style:normal;font-size:25px;display:block;margin-bottom:14px}.feature b{display:block;font-size:17px}.feature span{display:block;color:#938899;font-size:13px;margin-top:7px}.vip{border-color:#63379a}.panel{margin-top:20px;padding:24px;min-height:220px}.panel h2{margin-top:0}.result{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}.stat{padding:16px;border:1px solid #32243d;border-radius:14px;background:#0c0811}.stat span{display:block;color:#8f8498;font-size:12px}.stat b{font-size:24px;color:#d8b4fe}.row{display:flex;gap:10px;flex-wrap:wrap}.price{padding:18px;border:1px solid #33253e;border-radius:15px;background:#0d0912;flex:1;min-width:180px}.price b{font-size:22px}.small{color:#94899c;font-size:13px}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#a855f7;color:white;padding:12px 18px;border-radius:12px;display:none;z-index:20}@media(max-width:700px){.reviews,.grid{grid-template-columns:1fr}.welcome{align-items:flex-start;flex-direction:column}.result{grid-template-columns:repeat(2,1fr)}.hero{padding-top:25px}.auth-card{margin-top:25px}.welcome h1{font-size:26px}}
+/* =========================================================
+   SENFRIFAS — VISUAL MODERNO
+   Fundo roxo desfocado + cards premium + avaliações
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #05030a;
+  --card: rgba(17, 10, 27, 0.82);
+  --card-soft: rgba(24, 14, 38, 0.72);
+  --border: rgba(181, 91, 255, 0.18);
+  --purple: #7c2cff;
+  --purple-light: #b45cff;
+  --text: #f7f2ff;
+  --muted: #a59cac;
+  --input: rgba(5, 3, 10, 0.82);
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  color: var(--text);
+
+  background:
+    radial-gradient(
+      circle at 50% 17%,
+      rgba(124, 44, 255, 0.27),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 55%,
+      rgba(155, 55, 255, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 75%,
+      rgba(104, 32, 255, 0.12),
+      transparent 28%
+    ),
+    #05030a;
+
+  overflow-x: hidden;
+}
+
+/* Fundo com manchas desfocadas */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.42;
+}
+
+body::before {
+  width: 280px;
+  height: 280px;
+  background: #7624ff;
+  top: 100px;
+  left: -130px;
+}
+
+body::after {
+  width: 300px;
+  height: 300px;
+  background: #a42cff;
+  right: -150px;
+  bottom: 80px;
+}
+
+/* =========================================================
+   TELA
+   ========================================================= */
+
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 20px 70px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================================
+   HERO / TOPO
+   ========================================================= */
+
+.hero {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.brand span {
+  color: var(--purple-light);
+}
+
+.tag {
+  color: #a99faf;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+/* =========================================================
+   CARTÃO DE LOGIN
+   ========================================================= */
+
+.auth-card {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  padding: 30px 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 16, 43, 0.88),
+      rgba(10, 6, 15, 0.92)
+    );
+
+  border: 1px solid rgba(186, 95, 255, 0.20);
+  border-radius: 25px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55),
+    0 0 45px rgba(125, 42, 255, 0.10);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* brilho atrás do cartão */
+
+.auth-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 75%;
+  height: 55%;
+
+  left: 12%;
+  top: 20%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(103, 35, 255, 0.65),
+    rgba(190, 72, 255, 0.38)
+  );
+
+  filter: blur(70px);
+  opacity: 0.65;
+}
+
+/* =========================================================
+   ABAS
+   ========================================================= */
+
+.tabs {
+  display: flex;
+  gap: 26px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.tab {
+  position: relative;
+
+  background: transparent;
+  border: 0;
+
+  color: #aaa2b0;
+  font-size: 16px;
+  font-weight: 500;
+
+  padding: 0 0 14px;
+
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #ffffff;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -1px;
+
+  height: 3px;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #7c2cff,
+    #b75cff
+  );
+
+  box-shadow: 0 0 14px rgba(166, 70, 255, 0.8);
+}
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+
+  color: #aaa1b0;
+  font-size: 14px;
+
+  margin: 17px 0 8px;
+}
+
+input {
+  width: 100%;
+  height: 57px;
+
+  padding: 0 17px;
+
+  color: #ffffff;
+  font-size: 15px;
+
+  background: rgba(4, 2, 8, 0.88);
+
+  border: 1px solid rgba(187, 94, 255, 0.20);
+  border-radius: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+input::placeholder {
+  color: #625b68;
+}
+
+input:focus {
+  border-color: rgba(171, 77, 255, 0.75);
+
+  box-shadow:
+    0 0 0 3px rgba(128, 39, 255, 0.10),
+    0 0 25px rgba(130, 45, 255, 0.12);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button {
+  font-family: inherit;
+}
+
+.primary {
+  width: 100%;
+  height: 56px;
+
+  margin-top: 20px;
+
+  border: 0;
+  border-radius: 15px;
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      100deg,
+      #7024f5,
+      #ad4cff
+    );
+
+  box-shadow:
+    0 12px 30px rgba(121, 38, 255, 0.28);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 16px 38px rgba(143, 47, 255, 0.38);
+
+  filter: brightness(1.07);
+}
+
+.primary:active {
+  transform: translateY(0);
+}
+
+small {
+  display: block;
+
+  color: #817886;
+  font-size: 12px;
+
+  margin-top: 8px;
+}
+
+/* =========================================================
+   COMENTÁRIOS / AVALIAÇÕES
+   ========================================================= */
+
+.reviews {
+  width: 100%;
+  max-width: 760px;
+
+  margin: 48px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reviews > div {
+  position: relative;
+
+  padding: 20px 20px 19px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 15, 36, 0.90),
+      rgba(10, 7, 15, 0.88)
+    );
+
+  border: 1px solid rgba(189, 99, 255, 0.15);
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.30);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.reviews > div:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(180, 84, 255, 0.32);
+}
+
+/* estrelas */
+
+.reviews b {
+  display: block;
+
+  color: #b85cff;
+
+  font-size: 17px;
+  letter-spacing: 2px;
+
+  margin-bottom: 12px;
+
+  text-shadow:
+    0 0 12px rgba(180, 82, 255, 0.45);
+}
+
+/* texto do comentário */
+
+.reviews p {
+  color: #eee8f2;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  margin: 0;
+}
+
+/* nome do cliente */
+
+.reviews span {
+  display: block;
+
+  margin-top: 14px;
+
+  color: #817887;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   ÁREA DO CLIENTE
+   ========================================================= */
+
+#app {
+  min-height: 100vh;
+}
+
+#app header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#app main {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+  padding: 10px 20px 60px;
+}
+
+.welcome {
+  padding: 28px 0;
+}
+
+.welcome h1 {
+  font-size: clamp(28px, 8vw, 46px);
+  line-height: 1.05;
+
+  margin-top: 8px;
+}
+
+.welcome span {
+  color: #a98aff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.balance {
+  margin-top: 20px;
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background: rgba(22, 13, 31, 0.75);
+  border: 1px solid var(--border);
+}
+
+/* =========================================================
+   GRID DO PAINEL
+   ========================================================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+
+  margin-top: 18px;
+}
+
+.feature {
+  min-height: 105px;
+
+  padding: 18px;
+
+  text-align: left;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 16, 40, 0.92),
+      rgba(11, 7, 16, 0.90)
+    );
+
+  border: 1px solid rgba(184, 92, 255, 0.14);
+  border-radius: 19px;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.25);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.feature:hover {
+  transform: translateY(-3px);
+  border-color: rgba(179, 82, 255, 0.38);
+}
+
+.feature i {
+  color: #ae58ff;
+  font-size: 22px;
+  margin-right: 7px;
+}
+
+/* =========================================================
+   PAINEL DE CONTEÚDO
+   ========================================================= */
+
+.panel {
+  margin-top: 20px;
+
+  padding: 22px;
+
+  border-radius: 20px;
+
+  background: rgba(17, 10, 25, 0.82);
+
+  border: 1px solid rgba(181, 91, 255, 0.14);
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.30);
+
+  backdrop-filter: blur(15px);
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+#toast {
+  position: fixed;
+
+  left: 50%;
+  bottom: 25px;
+
+  transform: translateX(-50%);
+
+  max-width: calc(100% - 40px);
+
+  padding: 13px 18px;
+
+  color: #ffffff;
+  font-size: 14px;
+
+  background: rgba(24, 13, 34, 0.95);
+
+  border: 1px solid rgba(182, 87, 255, 0.35);
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.45),
+    0 0 25px rgba(125, 40, 255, 0.16);
+
+  z-index: 9999;
+
+  backdrop-filter: blur(15px);
+}
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .screen {
+    padding: 25px 16px 60px;
+  }
+
+  .brand {
+    font-size: 27px;
+  }
+
+  .tag {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .auth-card {
+    padding: 25px 19px;
+    border-radius: 23px;
+  }
+
+  .tabs {
+    gap: 24px;
+  }
+
+  .reviews {
+    margin-top: 35px;
+  }
+
+  .reviews > div {
+    padding: 18px;
+    border-radius: 19px;
+  }
+
+  .reviews p {
+    font-size: 14px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .screen {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .auth-card {
+    padding: 22px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  }
